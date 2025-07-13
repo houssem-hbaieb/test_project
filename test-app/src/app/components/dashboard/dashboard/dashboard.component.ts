@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Chart, ChartOptions, registerables } from 'chart.js';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +12,12 @@ import { Chart, ChartOptions, registerables } from 'chart.js';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
+  userRole: string | null = null;
+
+    constructor(private authService: AuthService) {}
+
+
+  
   ngAfterViewInit(): void {
     throw new Error('Method not implemented.');
   }
@@ -48,7 +55,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   };
 
   ngOnInit() {
-    // Initialize any additional setup if needed
+
+        this.userRole = this.authService.getUserRole();
+            console.log('User role:', this.userRole);  // <-- Add this line
+
+
   }
 
   toggleSidebar() {
