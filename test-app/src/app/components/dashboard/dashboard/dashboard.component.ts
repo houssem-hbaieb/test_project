@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     constructor(private authService: AuthService) {}
 
 
-  
+
   ngAfterViewInit(): void {
     throw new Error('Method not implemented.');
   }
@@ -57,7 +57,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit() {
 
         this.userRole = this.authService.getUserRole();
-            console.log('User role:', this.userRole);  // <-- Add this line
 
 
   }
