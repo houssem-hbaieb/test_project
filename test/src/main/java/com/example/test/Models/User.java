@@ -24,16 +24,12 @@ import java.util.stream.Collectors;
 @Table(name = "users")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long matricule;
     private String email;
     private String password;
-    private String matricule;
+    private int code_structure;
     private String nom;
     private String prenom;
-    private String adresse;
-    private String tel;
-    private String identiteBancaire;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(  name = "user_roles",
