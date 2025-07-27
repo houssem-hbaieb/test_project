@@ -18,7 +18,7 @@ import java.util.Set;
 @ToString
 @Entity
 @IdClass(DebiteurCtxId.class)
-@Table(name = "Debiteur_CTX")
+@Table(name = "debiteur_ctx")
 public class DebiteurCtx {
 
     @Id
@@ -95,9 +95,9 @@ public class DebiteurCtx {
 //    @JoinColumn(name = "CODE_CENTRE_DEC", referencedColumnName = "CODE_CENTRE_DEC")
 //    private CentreDecisionCtx centreDecisionCtx;
 
-    @OneToMany(mappedBy = "debiteurCtx")
-    @JsonIgnore
-    private Set<RisqueCtx> risqueCtx;
+//    @OneToMany(mappedBy = "debiteurCtx")
+//    @JsonIgnore
+//    private Set<RisqueCtx> risqueCtx;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "departement_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_debiteur_departement"))
@@ -119,10 +119,6 @@ public class DebiteurCtx {
 
     private static final long serialVersionUID = 1L;
 
-    public DebiteurCtx(Integer numCtx, Integer codeStructureCtx) {
-        super();
-        this.numCtx = numCtx;
-        this.codeStructureCtx = codeStructureCtx;
-    }
+
 
 }

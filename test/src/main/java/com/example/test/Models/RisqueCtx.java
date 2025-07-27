@@ -9,6 +9,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,7 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "Risque_CTX")
+@Table(name = "risque_ctx")
 public class RisqueCtx {
 
     private static final long serialVersionUID = -8234741148184594993L;
@@ -191,11 +192,11 @@ public class RisqueCtx {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
     private Date dateDecisionCtx;
 
-//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @Comment("clé étrangère: type_cloture_ctx")
-//    @JoinColumn(name = "type_cred_ctx", referencedColumnName = "ID_TYPE_CREDIT_CTX")
-//    private TypeCredit typeCreditCtx;
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @Comment("clé étrangère: type_cloture_ctx")
+   @JoinColumn(name = "type_cred_ctx", referencedColumnName = "ID_TYPE_CREDIT_CTX")
+    private TypeCredit typeCreditCtx;
 
     @Column(name = "ref_eps_ctx")
     @Comment("REF DE L EPS MIS EN JEU")
@@ -232,12 +233,12 @@ public class RisqueCtx {
 //    @JoinColumn(name = "cod_fond_ctx", referencedColumnName = "cod_fond_ctx")
 //    private FondCtx fondCtx;
 
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//
-//    @Comment("clé étrangère: stade_Ctx")
-//    @JoinColumn(name = "cod_stade_ctx", referencedColumnName = "cod_stade_ctx")
-//    private StadeCtx stadeCtx;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   @OnDelete(action = OnDeleteAction.CASCADE)
+
+   @Comment("clé étrangère: stade_Ctx")
+   @JoinColumn(name = "cod_stade_ctx", referencedColumnName = "cod_stade_ctx")
+   private StadeCtx stadeCtx;
 
 //    @ManyToOne(fetch = FetchType.LAZY, optional = true)
 //    @OnDelete(action = OnDeleteAction.CASCADE)
@@ -246,18 +247,17 @@ public class RisqueCtx {
 //    @JoinColumn(name = "cod_type_cloture_ctx", referencedColumnName = "cod_type_cloture_ctx")
 //    private TypeClotureCtx typeClotureCtx;
 //
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//
-//    @Comment("clé étrangère: creance_ctx")
-//    @JoinColumn(name = "cod_creance_ctx", referencedColumnName = "cod_creance_ctx")
-//    private CreanceCtx creanceCtx;
-//
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @Comment("clé étrangère: Produit_ctx")
-//    @JoinColumn(name = "cod_produit_ctx", referencedColumnName = "cod_produit_ctx")
-//    private ProduitCtx produitCtx;
+   @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   @OnDelete(action = OnDeleteAction.CASCADE)
+   @Comment("clé étrangère: creance_ctx")
+    @JoinColumn(name = "cod_creance_ctx", referencedColumnName = "cod_creance_ctx")
+   private CreanceCtx creanceCtx;
+
+   @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   @OnDelete(action = OnDeleteAction.CASCADE)
+   @Comment("clé étrangère: Produit_ctx")
+    @JoinColumn(name = "cod_produit_ctx", referencedColumnName = "cod_produit_ctx")
+    private ProduitCtx produitCtx;
 //
 //    @ManyToOne(fetch = FetchType.LAZY, optional = true)
 //    @OnDelete(action = OnDeleteAction.CASCADE)
@@ -298,6 +298,9 @@ public class RisqueCtx {
 
     @Column(name = "MNT_ENTRE_AGIORSV_CTX")
     private Double mntEntreAgiosReserv;
+
+    @OneToMany(mappedBy = "risqueCtx")
+    private Set<DetailRisqueCtx> details;
 
 //    @ManyToOne(fetch = FetchType.LAZY, optional = true)
 //    @OnDelete(action = OnDeleteAction.CASCADE)

@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "Detail_Risq_CTX")
+@Table(name = "detail_risq_ctx")
 
 public class DetailRisqueCtx {
 
