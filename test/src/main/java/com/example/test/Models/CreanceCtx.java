@@ -21,7 +21,7 @@ public class CreanceCtx implements Serializable {
     private static final long serialVersionUID = -5469485922969833704L;
 
     @Id
-    @Column(name = "cod_creance_ctx", columnDefinition = "NUMBER (2,0)")
+    @Column(name = "cod_creance_ctx")
     @Comment("Code du creance")
     private Integer codCreanceCtx;
 

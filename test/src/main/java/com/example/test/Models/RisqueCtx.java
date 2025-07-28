@@ -44,15 +44,15 @@ public class RisqueCtx {
     @Comment("Référence de garantie")
     private String referenceGarantieCtx;
 
-    @Column(name = "cod_agence_ctx", columnDefinition = "NUMBER (3,0)")
+    @Column(name = "cod_agence_ctx")
     @Comment("Code de l agence du risque ")
     private Integer codeAgenceCtx;
 
-    @Column(name = "risq_cible_ctx", columnDefinition = "NUMBER (3,0)")
+    @Column(name = "risq_cible_ctx")
     @Comment("Numéro du risque cible : cas BNA BUDGET")
     private Integer risqueCibleCtx;
 
-    @Column(name = "terme_ctx", columnDefinition = "NUMBER (1,0)")
+    @Column(name = "terme_ctx")
     @Comment("1 CT, 2 MT, 3 LT ")
     private Integer termeCtx;
 
@@ -134,7 +134,7 @@ public class RisqueCtx {
     @Comment("DATE D AFFECTATION A LA SOCIETE DE RECOUVREMENT")
     private Date dateAffecationSocieteCtx;
 
-    @Column(name = "etat_ste_reco_ctx", columnDefinition = "NUMBER (1,0)")
+    @Column(name = "etat_ste_reco_ctx")
     @Comment("1: A PAYER / 2: PAYÉ / 0: AUTRE")
     private Integer etatSocieteRecouvrementCtx;
 
@@ -195,14 +195,14 @@ public class RisqueCtx {
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @Comment("clé étrangère: type_cloture_ctx")
-   @JoinColumn(name = "type_cred_ctx", referencedColumnName = "ID_TYPE_CREDIT_CTX")
+   @JoinColumn(name = "ID_TYPE_CREDIT_CTX", referencedColumnName = "ID_TYPE_CREDIT_CTX")
     private TypeCredit typeCreditCtx;
 
     @Column(name = "ref_eps_ctx")
     @Comment("REF DE L EPS MIS EN JEU")
     private String referenceEpsCtx;
 
-    @Column(name = "NUM_PRET_AGR", columnDefinition = "NUMBER (4,0)")
+    @Column(name = "NUM_PRET_AGR")
     @Comment("Numéro de pret Agricole")
     private Integer numeroPretCtx;
 
@@ -212,10 +212,10 @@ public class RisqueCtx {
     @Column(name = "mnt_provision_ctx")
     private Double montantProvisionCtx;
 
-    @Column(name = "date_chargement_provision")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
-    @Temporal(TemporalType.DATE)
-    private Date dateChargementProvision;
+//    @Column(name = "date_chargement_provision")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
+//    @Temporal(TemporalType.DATE)
+//    private Date dateChargementProvision;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     // remove?
@@ -252,41 +252,23 @@ public class RisqueCtx {
    @Comment("clé étrangère: creance_ctx")
     @JoinColumn(name = "cod_creance_ctx", referencedColumnName = "cod_creance_ctx")
    private CreanceCtx creanceCtx;
-
+//
    @ManyToOne(fetch = FetchType.LAZY, optional = false)
    @OnDelete(action = OnDeleteAction.CASCADE)
    @Comment("clé étrangère: Produit_ctx")
     @JoinColumn(name = "cod_produit_ctx", referencedColumnName = "cod_produit_ctx")
     private ProduitCtx produitCtx;
-//
-//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @Comment("clé étrangère: objet")
-//    @JoinColumn(name = "cod_obj_ctx", referencedColumnName = "cod_obj_ctx")
-//    private ObjetCtx objetCtx;
-//
-//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @JoinColumn(name = "cod_gar_ctx", referencedColumnName = "cod_gar_ctx")
-//    @JoinColumn(name = "cod_type_gar_ctx", referencedColumnName = "cod_type_gar_ctx")
-//    @Comment("Clé étrangère: GarantieFinanciereCtx")
-//    private GarantieFinanciereCtx garantieFinanciereCtx;
-//
-//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @JoinColumn(name = "cod_ste_recouv_ctx")
-//    @Comment("Clé étrangère: Ste Recouv")
-//    private SocieteRecouvrementCtx societeRecouvrementCtx;
+
 
     @Column(name = "PLAFOND_FACILITE_CAISSE")
     @Comment("PLAFOND FACILITE CAISSE")
     private Double plafondFaciliteCaisse;
 
-    @Column(name = "ECHEANCE_FACILITE_CAISSE")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
-    @Temporal(TemporalType.DATE)
-    @Comment("ECHEANCE FACILITE CAISSE")
-    private Date echeanceFaciliteCaisse;
+//    @Column(name = "ECHEANCE_FACILITE_CAISSE")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
+//    @Temporal(TemporalType.DATE)
+//    @Comment("ECHEANCE FACILITE CAISSE")
+//    private Date echeanceFaciliteCaisse;
 
     @Column(name = "MNT_GARANTIE")
     @Comment("MNT GARANTIE")
@@ -299,34 +281,10 @@ public class RisqueCtx {
     @Column(name = "MNT_ENTRE_AGIORSV_CTX")
     private Double mntEntreAgiosReserv;
 
-    @OneToMany(mappedBy = "risqueCtx")
+   @OneToMany(mappedBy = "risqueCtx")
     private Set<DetailRisqueCtx> details;
 
-//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @JoinColumn(name = "CODE_CENTRE_DEC", referencedColumnName = "CODE_CENTRE_DEC")
-//    private CentreDecisionCtx centreDecisionCtx;
 
-//	@OneToMany(mappedBy = "risqueCtx")
-//	private Set<JournalRisqueCtx> journalRisqueCtx;
-
-//	@OneToMany(mappedBy = "risqueCtx")
-//	@JsonIgnore
-//	private Set<OperationCtx> operationCtx;
-
-//	@OneToMany(mappedBy = "risqueCtx")
-//	private Set<DemandeMainleveeCtx> demandeMainleveeCtx;
-
-//	@ManyToMany(mappedBy = "risques")
-//	@JsonIgnore
-//	@ToString.Exclude
-//	private Set<ArrangementCtx> arrangementCtx;
-
-//	@OneToMany(mappedBy = "risqueCtx")
-//	private Set<CautionRisqueCtx> cautionRisqueCtx;
-
-//	@OneToOne(mappedBy = "risqueCtx")
-//	private SotugarCtx sotugarCtx;
 
 
 

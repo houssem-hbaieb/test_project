@@ -45,12 +45,12 @@ public class DetailRisqueCtx {
     @Column(name = "mnt_frais_ctx")
     @Comment("Montant des frais")
     private Double montantFraisCtx;
-
-    @Column(name = "date_ech_ctx")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
-    @Temporal(TemporalType.DATE)
-    @Comment("date d échéance")
-    private Date dateEcheanceCtx;
+//
+//    @Column(name = "date_ech_ctx")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
+//    @Temporal(TemporalType.DATE)
+//    @Comment("date d échéance")
+//    private Date dateEcheanceCtx;
 
     // EPS
 
@@ -83,11 +83,11 @@ public class DetailRisqueCtx {
 //	@Comment("Montant principal restant  : MEJ partielle")
 //	private Double montantPrincipalEpsRestant;
 
-    @Column(name = "date_ech_marche_eps_ctx")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
-    @Temporal(TemporalType.DATE)
-    @Comment("date échéance du marché")
-    private Date dateEcheanceMarcheEpsCtx;
+//    @Column(name = "date_ech_marche_eps_ctx")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
+//    @Temporal(TemporalType.DATE)
+//    @Comment("date échéance du marché")
+//    private Date dateEcheanceMarcheEpsCtx;
 
     @Column(name = "ref_marche_eps_ctx")
     @Comment("Référence du  marché EPS")
@@ -115,7 +115,7 @@ public class DetailRisqueCtx {
 
     // tiré
 
-    @Column(name = "num_eff_tire_ctx", columnDefinition = "NUMBER(12,0)")
+    @Column(name = "num_eff_tire_ctx")
     @Comment("numéro d’effet escompté")
     private Long numEffetTireCtx;
 
@@ -123,17 +123,17 @@ public class DetailRisqueCtx {
     @Comment("sort effet à échoir")
     private String sortEffetTireCtx;
 
-    @Column(name = "date_sort_eff_tire_ctx")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
-    @Temporal(TemporalType.DATE)
-    @Comment("date du sort effet à échoir")
-    private Date dateSortEffetTireCtx;
+//    @Column(name = "date_sort_eff_tire_ctx")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
+//    @Temporal(TemporalType.DATE)
+//    @Comment("date du sort effet à échoir")
+//    private Date dateSortEffetTireCtx;
 
-    @Column(name = "date_recep_eff_ctx")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
-    @Temporal(TemporalType.DATE)
-    @Comment("Date réception physique de l’effet")
-    private Date dateReceptionEffCtx;
+//    @Column(name = "date_recep_eff_ctx")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "fr-FR", timezone = "GMT+01:00")
+//    @Temporal(TemporalType.DATE)
+//    @Comment("Date réception physique de l’effet")
+//    private Date dateReceptionEffCtx;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)

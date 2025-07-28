@@ -18,10 +18,9 @@ import org.hibernate.annotations.Comment;
 @Table(name = "stade_ctx")
 public class StadeCtx {
 
-    private static final long serialVersionUID = 771986111992580005L;
 
     @Id
-    @Column(name = "cod_stade_ctx", columnDefinition = "NUMBER (2,0)")
+    @Column(name = "cod_stade_ctx")
     @Comment("Code du stade")
     private Integer codeStadeCtx;
 

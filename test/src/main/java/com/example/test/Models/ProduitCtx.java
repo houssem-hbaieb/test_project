@@ -15,7 +15,7 @@ public class ProduitCtx {
 
     @Id
     @Basic(optional = false)
-    @Column(name = "cod_produit_ctx", unique = true, nullable = false, columnDefinition = "NUMBER (4,0)")
+    @Column(name = "cod_produit_ctx", unique = true, nullable = false)
     @Comment("Code produit")
     private Integer codeProduitCtx;
 

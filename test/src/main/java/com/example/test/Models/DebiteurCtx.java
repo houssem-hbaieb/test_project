@@ -22,12 +22,12 @@ import java.util.Set;
 public class DebiteurCtx {
 
     @Id
-    @Column(name = "num_ctx", nullable = false, columnDefinition = "NUMBER (6,0)")
+    @Column(name = "num_ctx", nullable = false)
     @Comment("Numero de dossier contentieux")
     private Integer numCtx;
 
     @Id
-    @Column(name = "cod_strc_ctx", nullable = false, columnDefinition = "NUMBER (3,0)")
+    @Column(name = "cod_strc_ctx", nullable = false)
     @Comment("Code de la structure ")
     private Integer codeStructureCtx;
 
@@ -95,9 +95,9 @@ public class DebiteurCtx {
 //    @JoinColumn(name = "CODE_CENTRE_DEC", referencedColumnName = "CODE_CENTRE_DEC")
 //    private CentreDecisionCtx centreDecisionCtx;
 
-//    @OneToMany(mappedBy = "debiteurCtx")
-//    @JsonIgnore
-//    private Set<RisqueCtx> risqueCtx;
+    @OneToMany(mappedBy = "debiteurCtx")
+    @JsonIgnore
+    private Set<RisqueCtx> risqueCtx;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "departement_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_debiteur_departement"))
