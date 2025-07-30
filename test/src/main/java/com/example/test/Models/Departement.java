@@ -1,5 +1,6 @@
 package com.example.test.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Comment;
@@ -30,8 +31,8 @@ public class Departement {
     @Column(name = "Cod_struc")
     @Comment("code structure")
     private String codeStructure;
-
     @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Division> divisions = new HashSet<>();
 
 

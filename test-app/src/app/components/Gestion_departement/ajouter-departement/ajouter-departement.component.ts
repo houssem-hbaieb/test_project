@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Departement } from '../../../Models/Departement';
 import { DepartementServiceService } from '../../../services/departement-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ajouter-departement',
@@ -17,7 +18,7 @@ export class AjouterDepartementComponent implements OnInit {
     codeStructure: ''
   };
 
-  constructor(private departementService: DepartementServiceService ) {}
+  constructor(private departementService: DepartementServiceService ,     private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -30,6 +31,8 @@ export class AjouterDepartementComponent implements OnInit {
           liblle: '',
           codeStructure: ''
         };
+      this.router.navigate(['menu/departements']);
+
       },
       error: (err) => {
         console.error('Erreur lors de l\'ajout du département', err);

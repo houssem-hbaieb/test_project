@@ -2,13 +2,17 @@ package com.example.test.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDivisionId {
+@EqualsAndHashCode
+public class UserDivisionId implements Serializable {
 
-    private Long userMatricule;
+    private int userMatricule;
     private Long divisionId;
 }

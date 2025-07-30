@@ -1,5 +1,6 @@
 package com.example.test.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,14 +16,15 @@ public class UserDivision {
 
     @Id
     @Column(name = "user_matricule")
-    private Long userMatricule;
+    private int userMatricule;
 
     @Id
     @Column(name = "division_id")
     private Long divisionId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_matricule", insertable = false, updatable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "roles"})
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)

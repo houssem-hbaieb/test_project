@@ -21,17 +21,16 @@ export class LoginComponentComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
-    
+
 
     this.loading = true;
     this.errorMessage = '';
 
-    this.authService.login({ 
-      email: this.email, 
-      password: this.password 
+    this.authService.login({
+      email: this.email,
+      password: this.password
     }).subscribe({
       next: (res) => {
-        // Store token based on remember me selection
         if (this.rememberMe) {
           localStorage.setItem('token', res.token);
         } else {
@@ -49,7 +48,7 @@ export class LoginComponentComponent {
     });
   }
 
- 
 
-  
+
+
 }
