@@ -37,7 +37,7 @@ export class ListeDivisionComponent  implements OnInit{
   }
 
   loadDivisions(): void {
-    this.divisionService.getAllDivisions().subscribe(divisions => {
+    this.divisionService.getDivisionsByDepartementId(this.departementId).subscribe(divisions => {
       this.divisions = divisions;
 
       this.divisions.forEach(division => {

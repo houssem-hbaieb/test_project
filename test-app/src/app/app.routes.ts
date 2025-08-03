@@ -5,6 +5,7 @@ import { SidebarComponent } from './components/Sidebar/sidebar/sidebar.component
 import { AjouterDepartementComponent } from './components/Gestion_departement/ajouter-departement/ajouter-departement.component';
 import { ListeDepartemmentComponent } from './components/Gestion_departement/liste-departemment/liste-departemment.component';
 import { ListeDivisionComponent } from './components/Gestion_division/liste-division/liste-division.component';
+import { UpdateDepartementComponent } from './components/Gestion_departement/update-departement/update-departement.component';
 
 export const routes: Routes = [
 
@@ -18,7 +19,8 @@ export const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'ajouter-dep', component: AjouterDepartementComponent },
       { path: 'departements', component: ListeDepartemmentComponent },
-       { path: 'division/:departementId', component: ListeDivisionComponent }
+      { path: 'editdepartement/:departementId', component: UpdateDepartementComponent },
+      { path: 'division/:departementId', component: ListeDivisionComponent }
 
 
 

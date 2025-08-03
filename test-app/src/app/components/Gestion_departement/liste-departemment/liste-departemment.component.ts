@@ -36,6 +36,10 @@ this.loadDepartements();  }
     this.router.navigate(['/menu/division', departementId]);
   }
 
+   navigateToEdit(departementId: number | undefined): void {
+    this.router.navigate(['/menu/editdepartement', departementId]);
+  }
+
   confirmDelete(depid: number | undefined): void {
     this.departementIdToDelete = depid;
   }

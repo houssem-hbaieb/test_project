@@ -1,4 +1,4 @@
-<form [formGroup]="departementForm" (ngSubmit)="addDepartement()" class="space-y-6 p-6">
+<form [formGroup]="departementForm" (ngSubmit)="onSubmit()" class="space-y-6 p-6">
   <div class="space-y-5">
     <!-- Nom du Département -->
     <div>
@@ -48,7 +48,7 @@
       [disabled]="departementForm.invalid"
       class="w-full py-3 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
     >
-      Ajouter le Département
+      modifier le Département
     </button>
   </div>
 </form>
