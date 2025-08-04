@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DivisionServiceService } from '../../../services/division-service.service';
 import { Division } from '../../../Models/Division';
 import { CommonModule } from '@angular/common';
@@ -28,7 +28,8 @@ export class ListeDivisionComponent  implements OnInit{
     private route: ActivatedRoute,
     private divisionService: DivisionServiceService,
     private userService : UserServiceService,
-    private userDivisionService: UserDivisionServiceService
+    private userDivisionService: UserDivisionServiceService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +42,7 @@ export class ListeDivisionComponent  implements OnInit{
       this.divisions = divisions;
 
       this.divisions.forEach(division => {
-        this.userDivisionService.getUsersByDivision(division.id).subscribe(users => {
+        this.userDivisionService.getUsersByDivision(division.id ).subscribe(users => {
           division.users = users;
         });
       });
@@ -88,8 +89,12 @@ assignUser() {
 }
 
 
+navigate_to_add(): void {
 
+  this.router.navigate(['/menu/ajouter-div']);
+ 
 
+} 
 
 
 

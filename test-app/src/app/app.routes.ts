@@ -6,6 +6,7 @@ import { AjouterDepartementComponent } from './components/Gestion_departement/aj
 import { ListeDepartemmentComponent } from './components/Gestion_departement/liste-departemment/liste-departemment.component';
 import { ListeDivisionComponent } from './components/Gestion_division/liste-division/liste-division.component';
 import { UpdateDepartementComponent } from './components/Gestion_departement/update-departement/update-departement.component';
+import { AjouterDivisionComponent } from './components/Gestion_division/ajouter-division/ajouter-division.component';
 
 export const routes: Routes = [
 
@@ -20,7 +21,8 @@ export const routes: Routes = [
       { path: 'ajouter-dep', component: AjouterDepartementComponent },
       { path: 'departements', component: ListeDepartemmentComponent },
       { path: 'editdepartement/:departementId', component: UpdateDepartementComponent },
-      { path: 'division/:departementId', component: ListeDivisionComponent }
+      { path: 'division/:departementId', component: ListeDivisionComponent },
+      { path: 'ajouter-div', component: AjouterDivisionComponent }
 
 
 

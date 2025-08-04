@@ -1,6 +1,7 @@
 package com.example.test.Controllers;
 
 import com.example.test.Models.Departement;
+import com.example.test.Repositories.DepartementRepository;
 import com.example.test.Services.DepartementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ import java.util.List;
 public class DepartementController {
 
     private final DepartementService departementService;
+
+    private DepartementRepository departementRepository;
+
 
     @PostMapping
     public ResponseEntity<Departement> createDepartement(@RequestBody Departement departement) {
@@ -55,5 +59,11 @@ public class DepartementController {
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Departement>> searchDepartements(@RequestParam String keyword) {
+        List<Departement> result = departementRepository.searchDepartements(keyword);
+        return ResponseEntity.ok(result);
     }
 }

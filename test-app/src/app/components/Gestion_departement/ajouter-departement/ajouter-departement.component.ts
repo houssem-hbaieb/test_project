@@ -27,7 +27,7 @@ export class AjouterDepartementComponent implements OnInit {
   ngOnInit(): void {
 
     this.departementForm = this.fb.group({
-      nomDepartement: ['', [Validators.required, Validators.minLength(3) , Validators.pattern(/^[a-zA-Z]+$/)]],
+      nomDepartement: ['', [Validators.required, Validators.minLength(3) ]],  
       liblle: ['', [Validators.required]],
       codeStructure: ['', [Validators.required, Validators.pattern(/^[A-Z0-9]+$/)]],
     });
