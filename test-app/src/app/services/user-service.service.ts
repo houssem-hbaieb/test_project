@@ -29,6 +29,14 @@ export class UserServiceService {
   }
 
 
+  getUsersNotAssignedToDivision(divisionId: number): Observable<User[]> {
+    return this.http.get<User[]>(
+      `${this.baseUrl}/not-assigned/${divisionId}`,
+      { headers: this.getAuthHeaders() }
+    );
+  }
+
+
 
 
 

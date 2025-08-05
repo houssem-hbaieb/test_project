@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Departement } from '../Models/Departement';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ export class DepartementServiceService {
 
 
    private getAuthHeaders(): HttpHeaders {
-    const token = localStorage.getItem('token'); 
+    const token = localStorage.getItem('token');
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -43,6 +43,12 @@ export class DepartementServiceService {
   deleteDepartement(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}` , {
       headers: this.getAuthHeaders()});
+  }
+
+
+  searchDepartements(keyword: string): Observable<Departement[]> {
+    const params = new HttpParams().set('keyword', keyword);
+    return this.http.get<Departement[]>(`${this.apiUrl}/search`, {headers: this.getAuthHeaders(), params , } ,);
   }
 
 

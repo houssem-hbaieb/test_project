@@ -12,14 +12,22 @@ import { RouterModule } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
+  activeMenu: string | null = null;
+  sidebarOpen = false;
+
+
+
+  toggleMenu(menu: string) {
+    this.activeMenu = this.activeMenu === menu ? null : menu;
+  }
+
       constructor(private authService: AuthService) {}
-  
+
 
 
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
-  sidebarOpen = false;
 
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;

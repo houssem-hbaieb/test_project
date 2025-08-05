@@ -3,20 +3,43 @@
 
   <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
     <!-- Table Header -->
-    <div class="flex justify-between items-center px-6 py-4 bg-gray-50 border-b border-gray-200">
-      <h2 class="text-lg font-semibold text-gray-700 flex items-center gap-3">
-        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-        </svg>
-        Liste des Départements
-      </h2>
-      <div class="relative">
-        <input type="text" placeholder="Rechercher..." class="pl-10 pr-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all w-64">
-        <svg class="absolute left-3 top-2.5 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </div>
+    <div class="flex items-center justify-between px-6 py-3 bg-white border-b border-gray-200">
+  <!-- Left side - Title with icon -->
+  <div class="flex items-center min-w-[200px]">
+    <h2 class="text-lg font-semibold text-gray-800 flex items-center gap-2">
+      <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+      </svg>
+      Liste des Départements
+    </h2>
+  </div>
+
+  <!-- Center - Search bar -->
+  <div class="flex-grow max-w-md mx-4">
+    <div class="relative">
+      <input
+        type="text"
+        placeholder="Rechercher un département..."
+        [(ngModel)]="searchKeyword"
+          (ngModelChange)="search()"
+        class="w-full pl-9 pr-4 py-1.5 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all bg-gray-50 hover:bg-white"
+      >
+      <svg class="absolute left-3 top-2 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
     </div>
+  </div>
+
+  <!-- Right side - Add button -->
+  <div class="flex items-center justify-end min-w-[200px]">
+    <button  (click)="openAddModal()" class="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200">
+      <svg class="-ml-0.5 mr-1.5 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+      </svg>
+      Ajouter
+    </button>
+  </div>
+</div>
 
     <!-- Table Content -->
     <div class="overflow-x-auto">
@@ -114,3 +137,65 @@
     </div>
   </div>
 </div>
+
+
+<div *ngIf="showAddModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white w-full max-w-lg rounded-lg shadow-xl p-6">
+    <h2 class="text-lg font-semibold mb-4">Ajouter un Département</h2>
+
+    <form [formGroup]="departementForm" (ngSubmit)="addDepartement()" class="space-y-6">
+
+       <div class="space-y-5">
+    <div>
+      <label for="nomDepartement" class="block text-sm font-medium text-gray-700 mb-1">Nom du Département *</label>
+      <input
+        id="nomDepartement"
+        type="text"
+        formControlName="nomDepartement"
+        class="block w-full px-4 py-2.5 border border-gray-300 rounded-lg"
+        placeholder="Ex: Département Informatique"
+      />
+      <p *ngIf="departementForm.get('nomDepartement')?.invalid && departementForm.get('nomDepartement')?.touched"
+         class="text-sm text-red-600 mt-1">Nom requis (min. 3 caractères)</p>
+    </div>
+
+    <div>
+      <label for="liblle" class="block text-sm font-medium text-gray-700 mb-1">Libellé *</label>
+      <input
+        id="liblle"
+        type="text"
+        formControlName="liblle"
+        class="block w-full px-4 py-2.5 border border-gray-300 rounded-lg"
+        placeholder="Ex: IT Department"
+      />
+    </div>
+
+    <div>
+      <label for="codeStructure" class="block text-sm font-medium text-gray-700 mb-1">Code Structure *</label>
+      <input
+        id="codeStructure"
+        type="text"
+        formControlName="codeStructure"
+        class="block w-full px-4 py-2.5 border border-gray-300 rounded-lg"
+        placeholder="Ex: STR123"
+      />
+      <p *ngIf="departementForm.get('codeStructure')?.invalid && departementForm.get('codeStructure')?.touched"
+         class="text-sm text-red-600 mt-1">Code requis (lettres/numériques, majuscules)</p>
+    </div>
+  </div>
+
+
+      <div class="flex justify-end gap-2">
+        <button type="button" (click)="closeAddModal()" class="px-4 py-2 bg-gray-300 rounded">Annuler</button>
+        <button
+          type="submit"
+          [disabled]="departementForm.invalid"
+          class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          Ajouter
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

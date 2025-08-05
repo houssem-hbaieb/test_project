@@ -17,7 +17,7 @@ public class DepartementController {
 
     private final DepartementService departementService;
 
-    private DepartementRepository departementRepository;
+    private final  DepartementRepository departementRepository;
 
 
     @PostMapping

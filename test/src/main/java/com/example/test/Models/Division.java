@@ -6,6 +6,7 @@ import lombok.*;
 import org.hibernate.annotations.Comment;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -37,4 +38,8 @@ public class Division {
 
     @OneToMany(mappedBy = "division", cascade = CascadeType.ALL, orphanRemoval = false)
     private Set<DebiteurCtx> dossiers = new HashSet<>();
+
+
+    @OneToMany(mappedBy = "division", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<UserDivision> userDivisions;
 }
