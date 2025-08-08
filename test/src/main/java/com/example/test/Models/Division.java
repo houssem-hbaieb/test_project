@@ -31,6 +31,10 @@ public class Division {
     private String codeStructure;
 
 
+    @Column(name = "user_id")
+    private int userId;
+
+
     @ManyToOne
     @JoinColumn(name = "departement_id")
     private Departement departement;

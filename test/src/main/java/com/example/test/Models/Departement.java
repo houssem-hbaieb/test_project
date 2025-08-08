@@ -31,10 +31,13 @@ public class Departement {
     @Column(name = "Cod_struc")
     @Comment("code structure")
     private String codeStructure;
+
+    @Column(name = "user_id")
+    private int userId;
+
     @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Division> divisions = new HashSet<>();
-
 
     @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL, orphanRemoval = false)
     private Set<DebiteurCtx> dossiers = new HashSet<>();
