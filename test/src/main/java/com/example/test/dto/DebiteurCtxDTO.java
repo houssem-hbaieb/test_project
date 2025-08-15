@@ -45,7 +45,7 @@ public class DebiteurCtxDTO implements Serializable {
 
     private Long departementId;
     private Long divisionId;
-    private int userId;
+    private Integer userId;
 
 
 

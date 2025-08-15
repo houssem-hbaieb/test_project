@@ -113,7 +113,7 @@ public class DebiteurCtx {
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "user_matricule", referencedColumnName = "matricule", foreignKey = @ForeignKey(name = "fk_debiteur_user"))
+    @JoinColumn(name = "user_matricule", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_debiteur_user"))
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private User user;
 

@@ -28,6 +28,4 @@ public class DemoController {
         return "🌐 Hello World! This is public.";
     }
 
-
-
 }

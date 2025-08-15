@@ -41,6 +41,7 @@ public class Division {
 
 
     @OneToMany(mappedBy = "division", cascade = CascadeType.ALL, orphanRemoval = false)
+    @JsonIgnore
     private Set<DebiteurCtx> dossiers = new HashSet<>();
 
 

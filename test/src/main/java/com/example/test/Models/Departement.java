@@ -40,6 +40,7 @@ public class Departement {
     private Set<Division> divisions = new HashSet<>();
 
     @OneToMany(mappedBy = "departement", cascade = CascadeType.ALL, orphanRemoval = false)
+    @JsonIgnore
     private Set<DebiteurCtx> dossiers = new HashSet<>();
 
 

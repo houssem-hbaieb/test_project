@@ -45,7 +45,7 @@ public class DebiteurCtxServiceImpl implements DebiteurService {
                 .dateReceptionDossier(entity.getDateReceptionDossier())
                 .departementId(entity.getDepartement() != null ? entity.getDepartement().getId() : null)
                 .divisionId(entity.getDivision() != null ? entity.getDivision().getId() : null)
-                .userId(entity.getUser() != null ? entity.getUser().getId() : null)
+                .userId(entity.getUser() != null && entity.getUser().getId() != null ? entity.getUser().getId() : 0) // Default to 0 if null
                 .build();
     }
 
@@ -74,10 +74,7 @@ public class DebiteurCtxServiceImpl implements DebiteurService {
             entity.setDivision(divisionRepository.findById(dto.getDivisionId())
                     .orElseThrow(() -> new RuntimeException("Division not found")));
         }
-        if (dto.getUserId() != 0) {
-            entity.setUser(userRepository.findById(dto.getUserId())
-                    .orElseThrow(() -> new RuntimeException("User not found")));
-        }
+
 
         return entity;
     }
@@ -85,6 +82,7 @@ public class DebiteurCtxServiceImpl implements DebiteurService {
 
     @Override
     public DebiteurCtxDTO create(DebiteurCtxDTO dto) {
+
         DebiteurCtx entity = toEntity(dto);
         return toDTO(debiteurCtxRepository.save(entity));
     }
@@ -153,6 +151,10 @@ public class DebiteurCtxServiceImpl implements DebiteurService {
 
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
+
+        if(user.getAuthorities().stream().noneMatch(auth -> auth.getAuthority().equals("ROLE_CHARGEE"))) {
+            throw new RuntimeException("L'utilisateur n'a pas le rôle approprié pour être affecté à ce dossier");
+        }
 
         dossier.setUser(user);
         return debiteurCtxRepository.save(dossier);
