@@ -160,5 +160,12 @@ public class DebiteurCtxServiceImpl implements DebiteurService {
         return debiteurCtxRepository.save(dossier);
     }
 
+    @Override
+    public List<DebiteurCtxDTO> getByDepartementId(Long departementId) {
+        return debiteurCtxRepository.findByDepartementId(departementId).stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
+    }
+
 
 }

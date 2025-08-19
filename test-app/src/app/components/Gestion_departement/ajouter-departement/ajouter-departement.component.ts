@@ -17,10 +17,11 @@ export class AjouterDepartementComponent implements OnInit {
 
 
     newDepartement: Departement = {
-    nomDepartement: '',
-    liblle: '',
-    codeStructure: ''
-  };
+      nomDepartement: '',
+      liblle: '',
+      codeStructure: '',
+      
+    };
 
   constructor(private departementService: DepartementServiceService ,     private router: Router ,  private fb: FormBuilder,) {}
 

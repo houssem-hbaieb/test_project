@@ -34,6 +34,7 @@ public class JwtService {
         com.example.test.Models.User user = (com.example.test.Models.User) userDetails;
 
         Map<String, Object> extraClaims = new HashMap<>();
+        extraClaims.put("id", user.getId());
         extraClaims.put("nom", user.getNom());
         extraClaims.put("prenom", user.getPrenom());
         extraClaims.put("role", user.getRoles()

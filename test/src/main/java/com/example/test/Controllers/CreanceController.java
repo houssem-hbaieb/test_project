@@ -70,6 +70,11 @@ public class CreanceController {
         return ResponseEntity.ok(creanceService.affecterDossierAUser(numCtx, userId));
     }
 
+    @GetMapping("/departement/{departementId}")
+    public ResponseEntity<List<DebiteurCtxDTO>> getByDepartement(@PathVariable Long departementId) {
+        return ResponseEntity.ok(creanceService.getByDepartementId(departementId));
+    }
+
 
 
 

@@ -12,4 +12,5 @@ public interface DepartementService {
     Optional<Departement> getDepartementById(Long id);
     Departement updateDepartement(Long id, Departement departement);
     void deleteDepartement(Long id);
+    public List<Departement> getDepartementsByUserId(Integer userId);
 }

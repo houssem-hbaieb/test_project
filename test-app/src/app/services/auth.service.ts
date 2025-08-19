@@ -65,6 +65,17 @@ getUserFullName(): string {
 }
 
 
+getUserId(): number | null {
+  const token = this.getToken();
+  if (!token) return null;
+
+  const decoded: any = jwtDecode(token);
+  console.log('Decoded JWT:', decoded);
+
+  return decoded.userId || decoded.id || null; 
+}
+
+
 
 }
 

@@ -30,6 +30,11 @@ export class DepartementServiceService {
       headers: this.getAuthHeaders()});
   }
 
+
+   getDepartementsByUserId(userId: number ): Observable<Departement[]> {
+    return this.http.get<Departement[]>(`${this.apiUrl}/by-user/${userId}` , {headers: this.getAuthHeaders()} );
+  }
+
   getDepartementById(id: number): Observable<Departement> {
     return this.http.get<Departement>(`${this.apiUrl}/${id}` , {
       headers: this.getAuthHeaders()});

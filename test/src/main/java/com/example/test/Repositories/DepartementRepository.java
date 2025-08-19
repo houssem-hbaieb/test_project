@@ -15,4 +15,8 @@ public interface DepartementRepository extends JpaRepository<Departement, Long> 
             "OR LOWER(d.codeStructure) LIKE LOWER(CONCAT('%', :keyword, '%')) " +
             "OR LOWER(d.liblle) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     List<Departement> searchDepartements(@Param("keyword") String keyword);
+
+
+    List<Departement> findByUserId(Integer userId);
+
 }

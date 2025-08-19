@@ -7,6 +7,8 @@ import { ListeDepartemmentComponent } from './components/Gestion_departement/lis
 import { ListeDivisionComponent } from './components/Gestion_division/liste-division/liste-division.component';
 import { UpdateDepartementComponent } from './components/Gestion_departement/update-departement/update-departement.component';
 import { AjouterDivisionComponent } from './components/Gestion_division/ajouter-division/ajouter-division.component';
+import { GetAlldossierComponent } from './components/Gestion_dossier/get-alldossier/get-alldossier.component';
+import { ListDossierByDepComponent } from './components/Gestion_dossier/list-dossier-by-dep/list-dossier-by-dep.component';
 
 export const routes: Routes = [
 
@@ -22,7 +24,11 @@ export const routes: Routes = [
       { path: 'departements', component: ListeDepartemmentComponent },
       { path: 'editdepartement/:departementId', component: UpdateDepartementComponent },
       { path: 'division/:departementId', component: ListeDivisionComponent },
-      { path: 'ajouter-div', component: AjouterDivisionComponent }
+      { path: 'ajouter-div', component: AjouterDivisionComponent },
+      { path: 'getallDossier', component: GetAlldossierComponent },
+     { path: 'getallDossierbydep', component:  ListDossierByDepComponent },
+
+
 
 
 

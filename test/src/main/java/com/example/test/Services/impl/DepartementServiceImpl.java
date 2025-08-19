@@ -45,4 +45,10 @@ public class DepartementServiceImpl implements DepartementService {
         departementRepository.deleteById(id);
 
     }
+
+    @Override
+    public List<Departement> getDepartementsByUserId(Integer userId) {
+        return departementRepository.findByUserId(userId);
+
+    }
 }

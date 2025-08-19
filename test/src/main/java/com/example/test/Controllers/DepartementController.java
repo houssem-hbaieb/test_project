@@ -66,4 +66,14 @@ public class DepartementController {
         List<Departement> result = departementRepository.searchDepartements(keyword);
         return ResponseEntity.ok(result);
     }
+
+
+    @GetMapping("/by-user/{userId}")
+    public List<Departement> getDepartementsByUserId(@PathVariable Integer userId) {
+        return departementService.getDepartementsByUserId(userId);
+    }
+
+
+
+
 }
