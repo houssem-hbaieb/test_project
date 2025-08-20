@@ -9,6 +9,7 @@ import { UpdateDepartementComponent } from './components/Gestion_departement/upd
 import { AjouterDivisionComponent } from './components/Gestion_division/ajouter-division/ajouter-division.component';
 import { GetAlldossierComponent } from './components/Gestion_dossier/get-alldossier/get-alldossier.component';
 import { ListDossierByDepComponent } from './components/Gestion_dossier/list-dossier-by-dep/list-dossier-by-dep.component';
+import { ListdossierbydivisionComponent } from './components/Gestion_dossier/listdossierbydivision/listdossierbydivision.component';
 
 export const routes: Routes = [
 
@@ -26,7 +27,9 @@ export const routes: Routes = [
       { path: 'division/:departementId', component: ListeDivisionComponent },
       { path: 'ajouter-div', component: AjouterDivisionComponent },
       { path: 'getallDossier', component: GetAlldossierComponent },
-     { path: 'getallDossierbydep', component:  ListDossierByDepComponent },
+      { path: 'getallDossierbydep', component:  ListDossierByDepComponent },
+      { path: 'getallDossierbydiv', component:  ListdossierbydivisionComponent },
+
 
 
 

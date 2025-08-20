@@ -43,15 +43,18 @@
             <td class="px-6 py-4">{{ dossier.etatCtx }}</td>
             <td class="px-6 py-4">{{ dossier.soldeRecouvrementCtx | currency:'EUR' }}</td>
             <td class="px-6 py-4">{{ dossier.dateCreationCtx | date:'dd/MM/yyyy' }}</td>
-            
-            <!-- ✅ Affichage Département -->
+
+            <!-- ✅ Affichage Département avec informations du user associé -->
             <td class="px-6 py-4">
-              <span *ngIf="dossier.departementId" class="text-green-600 font-semibold">
-                dossier affecté
-              </span>
-              <span *ngIf="!dossier.departementId" class="text-gray-400 italic">
-                Non affecté
-              </span>
+              <ng-container *ngIf="dossier.departementId; else noDepartement">
+                <div class="p-2 bg-green-50 rounded shadow-sm flex flex-col">
+                  <span class="font-semibold text-gray-800">{{ getDepartementName(dossier.departementId) }}</span>
+                  <span class="text-xs text-gray-500">Code Structure: {{ getDepartementCodeStructure(dossier.departementId) }}</span>
+                </div>
+              </ng-container>
+              <ng-template #noDepartement>
+                <span class="text-gray-400 italic">Non affecté</span>
+              </ng-template>
             </td>
 
             <!-- ✅ Actions -->
@@ -61,7 +64,12 @@
                 class="px-3 py-1.5 bg-blue-600 text-white text-xs rounded hover:bg-blue-700">
                 Affecter Département
               </button>
-              <button 
+              <button *ngIf="dossier.departementId"
+                (click)="openAffecterDepartementModal(dossier)"
+                class="px-3 py-1.5 bg-blue-600 text-white text-xs rounded hover:bg-blue-700">
+                reffecter Département
+              </button>
+              <button
                 class="px-3 py-1.5 bg-red-600 text-white text-xs rounded hover:bg-red-700">
                 Supprimer
               </button>
@@ -83,7 +91,7 @@
         <label class="block text-sm font-medium text-gray-700 mb-1">Choisir un département</label>
         <select [(ngModel)]="selectedDepartementId" name="departement" class="w-full border rounded-lg p-2">
           <option *ngFor="let dep of departements" [value]="dep.id">
-            {{ dep.nomDepartement }}
+            {{ dep.nomDepartement }} - Code: {{ dep.codeStructure }}
           </option>
         </select>
       </div>

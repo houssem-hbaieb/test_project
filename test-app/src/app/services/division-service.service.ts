@@ -68,7 +68,12 @@ export class DivisionServiceService {
   }
 
 
-  
+     getDivisionByUserId(userId: number ): Observable<Division[]> {
+      return this.http.get<Division[]>(`${this.apiUrl}/by-user/${userId}` , {headers: this.getAuthHeaders()} );
+    }
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 package com.example.test.Controllers;
 
+import com.example.test.Models.ERole;
 import com.example.test.Services.UserService;
 import com.example.test.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +39,36 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/chargees")
+    public List<UserDTO> getAllChargees() {
+        return userService.findUsersByRole(ERole.ROLE_CHARGEE);
+    }
+
+    @GetMapping("/sauf_admin")
+    public ResponseEntity<List<UserDTO>> getAllRoleExpectAdmin() {
+        return ResponseEntity.ok(userService.getAllUsersExceptAdmin());
+    }
+
+
+    @PostMapping("/{userId}/roles/{role}")
+    public ResponseEntity<UserDTO> addRoleToUser(
+            @PathVariable Integer userId,
+            @PathVariable ERole role
+    ) {
+        return ResponseEntity.ok(userService.addRoleToUser(userId, role));
+    }
+
+    @DeleteMapping("/{userId}/roles/{role}")
+    public ResponseEntity<UserDTO> removeRoleFromUser(
+            @PathVariable Integer userId,
+            @PathVariable ERole role
+    ) {
+        return ResponseEntity.ok(userService.removeRoleFromUser(userId, role));
+    }
+
+
+
 
 
 

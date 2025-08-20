@@ -1,5 +1,6 @@
 package com.example.test.Services;
 
+import com.example.test.Models.Departement;
 import com.example.test.Models.Division;
 import com.example.test.Models.UserDivision;
 import com.example.test.dto.DivisionDTO;
@@ -15,6 +16,8 @@ public interface DivisionService {
     Division getDivisionById(Long id);
     List<Division> getDivisionsByDepartementId(Long departementId);
     UserDivision assignUserToDivision(int userMatricule, Long divisionId);
+    public List<Division> getDivisionByUserId(Integer userId);
+
 
 
 

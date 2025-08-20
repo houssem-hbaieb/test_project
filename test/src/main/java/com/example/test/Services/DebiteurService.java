@@ -15,4 +15,9 @@ public interface DebiteurService {
     public DebiteurCtx affecterDossierADivision(Integer numCtx, Long divisionId);
     public DebiteurCtx affecterDossierAUser(Integer numCtx, Integer userId);
     public List<DebiteurCtxDTO> getByDepartementId(Long departementId);
+
+    public List<DebiteurCtxDTO> getByDivisionId(Long divisionId);
+
+    public List<DebiteurCtxDTO> getDebiteursByUserId(Integer userId);
+
 }

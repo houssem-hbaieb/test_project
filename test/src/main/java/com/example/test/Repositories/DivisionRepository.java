@@ -10,4 +10,8 @@ public interface DivisionRepository extends JpaRepository<Division, Long> {
 
     List<Division> findByDepartementId(Long departementId);
 
+
+    List<Division> findByUserId(Integer userId);
+
+
 }

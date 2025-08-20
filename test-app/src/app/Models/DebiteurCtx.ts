@@ -8,7 +8,7 @@ export interface DebiteurCtx {
   sortCtx?: string;
   motifSortCtx?: string;
 
-  dateTransfertCtx?: string;  
+  dateTransfertCtx?: string;
   soldeRecouvrementCtx?: number;
 
   dateClotureCtx?: string;

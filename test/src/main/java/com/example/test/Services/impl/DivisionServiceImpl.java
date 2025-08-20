@@ -89,5 +89,10 @@ public class DivisionServiceImpl implements DivisionService {
         return userDivisionRepository.save(userDivision);
     }
 
+    @Override
+    public List<Division> getDivisionByUserId(Integer userId) {
+        return   divisionRepository.findByUserId(userId);
+    }
+
 
 }

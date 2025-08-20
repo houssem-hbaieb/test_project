@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-    @RequestMapping("/api/dossier")
+@RequestMapping("/api/dossier")
 public class CreanceController {
 
     private final DebiteurService creanceService;
@@ -42,7 +42,6 @@ public class CreanceController {
 
 
     @PutMapping("/{numCtx}/departement/{departementId}")
-    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<DebiteurCtx> affecterDepartement(
             @PathVariable Integer numCtx,
             @PathVariable Long departementId
@@ -74,6 +73,18 @@ public class CreanceController {
     public ResponseEntity<List<DebiteurCtxDTO>> getByDepartement(@PathVariable Long departementId) {
         return ResponseEntity.ok(creanceService.getByDepartementId(departementId));
     }
+
+
+    @GetMapping("/division/{divisionId}")
+    public ResponseEntity<List<DebiteurCtxDTO>> getByDivision(@PathVariable Long divisionId) {
+        return ResponseEntity.ok(creanceService.getByDivisionId(divisionId));
+    }
+
+    @GetMapping("/chargee/{userId}")
+    public ResponseEntity<List<DebiteurCtxDTO>> getByDivision(@PathVariable int userId) {
+        return ResponseEntity.ok(creanceService.getDebiteursByUserId(userId));
+    }
+
 
 
 

@@ -23,7 +23,7 @@ export class GetAlldossierComponent implements OnInit {
 
 
   constructor(private debiteurService: DossierService, private departementService: DepartementServiceService) {}
-  
+
   ngOnInit(): void {
     this.loadDossiers() ;
     this.loadDepartements();
@@ -62,14 +62,27 @@ export class GetAlldossierComponent implements OnInit {
 
          const dep = this.departements.find(d => d.id === this.selectedDepartementId);
       if (dep) {
-        this.selectedDossier.departement = dep; 
+        this.selectedDossier.departement = dep;
       }
     }
   }
 
 
+  getDepartementName(id: number): string {
+  const d = this.departements.find(dep => dep.id === id);
+  return d ? d.nomDepartement : '';
+}
 
-  
- 
+getDepartementCodeStructure(id: number): string {
+  const d = this.departements.find(dep => dep.id === id);
+  return d ? d.codeStructure : '';
+}
+
+
+
+
+
+
+
 
 }

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../Models/User';
+import { ERole } from '../Models/ERole';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,27 @@ export class UserServiceService {
       { headers: this.getAuthHeaders() }
     );
   }
+
+   getAllChargees(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/chargees`, { headers: this.getAuthHeaders() });
+  }
+
+   getAllUsersExceptAdmin(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/sauf_admin`);
+  }
+
+   addRoleToUser(userId: number, role: ERole): Observable<User> {
+    return this.http.post<User>(`${this.baseUrl}/${userId}/roles/${role}`, {headers: this.getAuthHeaders()});
+  }
+
+  removeRoleFromUser(userId: number, role: ERole): Observable<User> {
+    return this.http.delete<User>(`${this.baseUrl}/${userId}/roles/${role}` , {headers: this.getAuthHeaders()});
+  }
+
+
+
+
+
 
 
 

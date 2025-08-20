@@ -167,5 +167,17 @@ public class DebiteurCtxServiceImpl implements DebiteurService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<DebiteurCtxDTO> getByDivisionId(Long divisionId) {
+        return debiteurCtxRepository.findByDivisionId(divisionId).stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<DebiteurCtxDTO> getDebiteursByUserId(Integer userId) {
+        return debiteurCtxRepository.findByUserId(userId).stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());    }
 
 }

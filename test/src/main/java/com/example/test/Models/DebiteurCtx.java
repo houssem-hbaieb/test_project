@@ -99,20 +99,20 @@ public class DebiteurCtx {
     @JsonIgnore
     private Set<RisqueCtx> risqueCtx;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "departement_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_debiteur_departement"))
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private Departement departement;
 
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "division_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_debiteur_division"))
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private Division division;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "user_matricule", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_debiteur_user"))
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private User user;

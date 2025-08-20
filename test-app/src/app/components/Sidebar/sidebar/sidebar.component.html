@@ -6,11 +6,16 @@
       <div class="flex justify-between items-center h-16">
         <!-- Left side -->
         <div class="flex items-center space-x-6">
-          <button (click)="toggleSidebar()" class="text-gray-500 hover:text-blue-600 transition-colors lg:hidden">
+          <button
+            (click)="toggleSidebar()"
+            class="text-gray-500 hover:text-blue-600 transition-colors lg:hidden"
+          >
             <i class="fas fa-bars text-xl"></i>
           </button>
           <div class="flex items-center space-x-3">
-            <div class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm">
+            <div
+              class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center shadow-sm"
+            >
               <i class="fas fa-leaf text-white text-lg"></i>
             </div>
             <h1 class="text-xl font-bold text-gray-800">EcoAdmin</h1>
@@ -20,38 +25,59 @@
         <!-- Right side -->
         <div class="flex items-center space-x-6">
           <div class="flex items-center space-x-5">
-            <button class="relative text-gray-500 hover:text-blue-600 transition-colors mr-1">
+            <button
+              class="relative text-gray-500 hover:text-blue-600 transition-colors mr-1"
+            >
               <i class="fas fa-bell text-xl"></i>
-              <span class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
+              <span
+                class="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium"
+                >3</span
+              >
             </button>
 
             <div class="flex items-center space-x-2 group relative ml-1">
               <div class="flex items-center space-x-3 cursor-pointer">
-                <div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center border border-blue-200">
+                <div
+                  class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center border border-blue-200"
+                >
                   <i class="fas fa-user text-blue-600"></i>
                 </div>
                 <div class="hidden md:flex flex-col items-start">
-                  <span class="text-gray-700 font-medium text-sm">John Doe</span>
+                  <span class="text-gray-700 font-medium text-sm"
+                    >John Doe</span
+                  >
                   <span class="text-gray-400 text-xs">Admin</span>
                 </div>
-                <i class="fas fa-chevron-down text-gray-400 text-xs mt-0.5 transition-transform group-hover:rotate-180"></i>
+                <i
+                  class="fas fa-chevron-down text-gray-400 text-xs mt-0.5 transition-transform group-hover:rotate-180"
+                ></i>
               </div>
 
               <!-- Dropdown menu -->
-              <div class="absolute right-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block border border-gray-100">
+              <div
+                class="absolute right-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg py-1 z-50 hidden group-hover:block border border-gray-100"
+              >
                 <div class="px-4 py-3 border-b border-gray-100">
                   <p class="text-sm font-medium text-gray-800">John Doe</p>
                   <p class="text-xs text-gray-500">john example.com</p>
                 </div>
-                <a href="#" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors flex items-center space-x-3">
+                <a
+                  href="#"
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors flex items-center space-x-3"
+                >
                   <i class="fas fa-user text-blue-500 w-5"></i>
                   <span>Profile</span>
                 </a>
-                <a href="#" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors flex items-center space-x-3">
+                <a
+                  href="#"
+                  class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors flex items-center space-x-3"
+                >
                   <i class="fas fa-cog text-blue-500 w-5"></i>
                   <span>Settings</span>
                 </a>
-                <button class="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors flex items-center space-x-3">
+                <button
+                  class="w-full text-left px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition-colors flex items-center space-x-3"
+                >
                   <i class="fas fa-sign-out-alt text-blue-500 w-5"></i>
                   <span>Logout</span>
                 </button>
@@ -66,7 +92,10 @@
   <!-- Sidebar with dynamic menus -->
   <aside
     id="sidebar"
-    [ngClass]="{'translate-x-0': sidebarOpen, '-translate-x-full lg:translate-x-0': !sidebarOpen}"
+    [ngClass]="{
+      'translate-x-0': sidebarOpen,
+      '-translate-x-full lg:translate-x-0': !sidebarOpen
+    }"
     class="fixed left-0 top-16 bottom-0 w-64 bg-white shadow-lg sidebar-transition z-40 overflow-y-auto"
   >
     <div class="flex flex-col h-full">
@@ -74,8 +103,14 @@
         <nav class="space-y-1">
           <!-- Dashboard -->
           <div>
-            <a routerLink="/menu/dashboard" href="#" class="sidebar-item flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group">
-              <i class="fas fa-tachometer-alt text-blue-600 group-hover:text-blue-700 w-5 text-center"></i>
+            <a
+              routerLink="/menu/dashboard"
+              href="#"
+              class="sidebar-item flex items-center space-x-3 p-3 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+            >
+              <i
+                class="fas fa-tachometer-alt text-blue-600 group-hover:text-blue-700 w-5 text-center"
+              ></i>
               <span class="font-medium text-sm">Dashboard</span>
             </a>
           </div>
@@ -92,32 +127,55 @@
               </div>
               <i
                 class="fas fa-chevron-down text-gray-400 text-xs transition-transform duration-200"
-                [ngClass]="{'transform rotate-180': activeMenu === 'userManagement'}"
+                [ngClass]="{
+                  'transform rotate-180': activeMenu === 'userManagement'
+                }"
               ></i>
             </div>
 
             <div
               class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
-              [ngClass]="{'max-h-0 py-0': activeMenu !== 'userManagement', 'max-h-96 py-2': activeMenu === 'userManagement'}"
+              [ngClass]="{
+                'max-h-0 py-0': activeMenu !== 'userManagement',
+                'max-h-96 py-2': activeMenu === 'userManagement'
+              }"
             >
               <!-- ... user management sub-items ... -->
               <div
-            class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
-            [ngClass]="{'max-h-0 py-0': activeMenu !== 'userManagement', 'max-h-96 py-2': activeMenu === 'userManagement'}"
-          >
-            <a href="#" class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group">
-              <i class="fas fa-user-friends text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"></i>
-              <span class="font-normal text-sm">All Users</span>
-            </a>
-            <a href="#" class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group">
-              <i class="fas fa-user-plus text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"></i>
-              <span class="font-normal text-sm">Add New User</span>
-            </a>
-            <a href="#" class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group">
-              <i class="fas fa-user-shield text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"></i>
-              <span class="font-normal text-sm">Roles & Permissions</span>
-            </a>
-          </div>
+                class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
+                [ngClass]="{
+                  'max-h-0 py-0': activeMenu !== 'userManagement',
+                  'max-h-96 py-2': activeMenu === 'userManagement'
+                }"
+              >
+                <a
+                  href="#"
+                  class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <i
+                    class="fas fa-user-friends text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                  ></i>
+                  <span class="font-normal text-sm">All Users</span>
+                </a>
+                <a
+                  href="#"
+                  class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <i
+                    class="fas fa-user-plus text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                  ></i>
+                  <span class="font-normal text-sm">Add New User</span>
+                </a>
+                <a
+                  href="#"
+                  class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <i
+                    class="fas fa-user-shield text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                  ></i>
+                  <span class="font-normal text-sm">Roles & Permissions</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -133,34 +191,57 @@
               </div>
               <i
                 class="fas fa-chevron-down text-gray-400 text-xs transition-transform duration-200"
-                [ngClass]="{'transform rotate-180': activeMenu === 'departmentManagement'}"
+                [ngClass]="{
+                  'transform rotate-180': activeMenu === 'departmentManagement'
+                }"
               ></i>
             </div>
 
             <div
               class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
-              [ngClass]="{'max-h-0 py-0': activeMenu !== 'departmentManagement', 'max-h-96 py-2': activeMenu === 'departmentManagement'}"
+              [ngClass]="{
+                'max-h-0 py-0': activeMenu !== 'departmentManagement',
+                'max-h-96 py-2': activeMenu === 'departmentManagement'
+              }"
             >
-               <div
-            class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
-            [ngClass]="{'max-h-0 py-0': activeMenu !== 'departmentManagement', 'max-h-96 py-2': activeMenu === 'departmentManagement'}"
-          >
-            <a routerLink="/menu/departements" href="#" class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group">
-              <i class="fas fa-list-ul text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"></i>
-              <span class="font-normal text-sm">List Departments</span>
-            </a>
-            <a href="#" class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group">
-              <i class="fas fa-plus-circle text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"></i>
-              <span class="font-normal text-sm">Add Department</span>
-            </a>
-            <a href="#" class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group">
-              <i class="fas fa-sitemap text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"></i>
-              <span class="font-normal text-sm">Department Structure</span>
-            </a>
-          </div>
-        </div>
+              <div
+                class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
+                [ngClass]="{
+                  'max-h-0 py-0': activeMenu !== 'departmentManagement',
+                  'max-h-96 py-2': activeMenu === 'departmentManagement'
+                }"
+              >
+                <a
+                  routerLink="/menu/departements"
+                  href="#"
+                  class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <i
+                    class="fas fa-list-ul text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                  ></i>
+                  <span class="font-normal text-sm">List Departments</span>
+                </a>
+                <a
+                  href="#"
+                  class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <i
+                    class="fas fa-plus-circle text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                  ></i>
+                  <span class="font-normal text-sm">Add Department</span>
+                </a>
+                <a
+                  href="#"
+                  class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <i
+                    class="fas fa-sitemap text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                  ></i>
+                  <span class="font-normal text-sm">Department Structure</span>
+                </a>
+              </div>
             </div>
-
+          </div>
 
           <!-- Division Management -->
           <div>
@@ -169,20 +250,57 @@
               class="flex items-center justify-between px-3 py-3 rounded-lg cursor-pointer hover:bg-blue-50 transition-all duration-200"
             >
               <div class="flex items-center space-x-3">
-                <i class="fas fa-network-wired text-blue-600 w-5 text-center"></i>
-                <span class="font-medium text-sm">Division Management</span>
+                <i
+                  class="fas fa-network-wired text-blue-600 w-5 text-center"
+                ></i>
+                <span class="font-medium text-sm">dossier Management</span>
               </div>
               <i
                 class="fas fa-chevron-down text-gray-400 text-xs transition-transform duration-200"
-                [ngClass]="{'transform rotate-180': activeMenu === 'divisionManagement'}"
+                [ngClass]="{
+                  'transform rotate-180': activeMenu === 'divisionManagement'
+                }"
               ></i>
             </div>
 
             <div
               class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
-              [ngClass]="{'max-h-0 py-0': activeMenu !== 'divisionManagement', 'max-h-96 py-2': activeMenu === 'divisionManagement'}"
+              [ngClass]="{
+                'max-h-0 py-0': activeMenu !== 'divisionManagement',
+                'max-h-96 py-2': activeMenu === 'divisionManagement'
+              }"
             >
-              <!-- ... division management sub-items ... -->
+              <a  *ngIf="userRole === 'ROLE_ADMIN'"
+                routerLink="/menu/getallDossier"
+                href="#"
+                class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+              >
+                <i
+                  class="fas fa-list-ul text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                ></i>
+                <span class="font-normal text-sm">List dossier</span>
+              </a>
+              <a  *ngIf="userRole === 'ROLE_CHEFDEPARTEMENT'"
+                routerLink="/menu/getallDossierbydep"
+                href="#"
+                class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+              >
+                <i
+                  class="fas fa-list-ul text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                ></i>
+                <span class="font-normal text-sm">List dossier by departement </span>
+              </a>
+              <a *ngIf="userRole === 'ROLE_CHEFDIVISION'"
+                routerLink="/menu/getallDossierbydiv"
+                href="#"
+                class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+              >
+                <i
+                  class="fas fa-list-ul text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                ></i>
+                <span class="font-normal text-sm">List dossier by division</span>
+              </a>
+
             </div>
           </div>
 
@@ -198,13 +316,18 @@
               </div>
               <i
                 class="fas fa-chevron-down text-gray-400 text-xs transition-transform duration-200"
-                [ngClass]="{'transform rotate-180': activeMenu === 'settings'}"
+                [ngClass]="{
+                  'transform rotate-180': activeMenu === 'settings'
+                }"
               ></i>
             </div>
 
             <div
               class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
-              [ngClass]="{'max-h-0 py-0': activeMenu !== 'settings', 'max-h-96 py-2': activeMenu === 'settings'}"
+              [ngClass]="{
+                'max-h-0 py-0': activeMenu !== 'settings',
+                'max-h-96 py-2': activeMenu === 'settings'
+              }"
             >
               <!-- ... settings sub-items ... -->
             </div>

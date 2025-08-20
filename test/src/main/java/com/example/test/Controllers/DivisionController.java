@@ -1,5 +1,6 @@
 package com.example.test.Controllers;
 
+import com.example.test.Models.Departement;
 import com.example.test.Models.Division;
 import com.example.test.Models.UserDivision;
 import com.example.test.Services.DivisionService;
@@ -52,5 +53,11 @@ public class DivisionController {
     public ResponseEntity<?> assignUserToDivision(@RequestParam int userMatricule, @RequestParam Long divisionId) {
         UserDivision result = divisionService.assignUserToDivision(userMatricule, divisionId);
         return ResponseEntity.ok(result);
+    }
+
+
+    @GetMapping("/by-user/{userId}")
+    public List<Division> getDivisionByUserId(@PathVariable Integer userId) {
+        return divisionService.getDivisionByUserId(userId);
     }
 }

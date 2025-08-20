@@ -14,6 +14,8 @@ export class SidebarComponent implements OnInit {
 
   activeMenu: string | null = null;
   sidebarOpen = false;
+    userRole: string | null = null;
+
 
 
 
@@ -26,7 +28,7 @@ export class SidebarComponent implements OnInit {
 
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+        this.userRole = this.authService.getUserRole();
   }
 
   toggleSidebar() {

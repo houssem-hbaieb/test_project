@@ -92,7 +92,7 @@ export class ListDossierByDepComponent implements OnInit {
   affecterDivision(): void {
     if (this.selectedDossier && this.selectedDivisionId) {
       this.debiteurService.affecterDivision(
-        this.selectedDossier.numCtx!, 
+        this.selectedDossier.numCtx!,
         this.selectedDivisionId
       ).subscribe(() => {
         this.loadDossiersForChef();
@@ -100,4 +100,14 @@ export class ListDossierByDepComponent implements OnInit {
       });
     }
   }
+
+  getDivisionName(id: number): string {
+  const d = this.divisions.find(div => div.id === id);
+  return d ? d.liblle : '';
+}
+
+getDivisionCodeStructure(id: number): string {
+  const d = this.divisions.find(div => div.id === id);
+  return d ? d.codeStructure : '';
+}
 }

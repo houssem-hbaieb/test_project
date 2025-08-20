@@ -20,6 +20,12 @@ public interface DebiteurRepository extends JpaRepository<DebiteurCtx, DebiteurC
 
     List<DebiteurCtx> findByDepartementId(Long departementId);
 
+    List<DebiteurCtx> findByDivisionId(Long divisionId);
+
+    List<DebiteurCtx> findByUserId(Integer userId);
+
+
+
 
 
 
