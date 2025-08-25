@@ -57,6 +57,10 @@ export class DossierService {
     return this.http.get<DebiteurCtx[]>(`${this.apiUrl}/division/${divisionId}` , {headers: this.getAuthHeaders()});
   }
 
+   getDebiteursByUserId(userId: number): Observable<DebiteurCtx[]> {
+    return this.http.get<DebiteurCtx[]>(`${this.apiUrl}/chargee/${userId}`, { headers: this.getAuthHeaders() });
+  }
+
 
 
 }

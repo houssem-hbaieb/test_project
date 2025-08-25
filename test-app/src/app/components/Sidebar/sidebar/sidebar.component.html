@@ -18,7 +18,7 @@
             >
               <i class="fas fa-leaf text-white text-lg"></i>
             </div>
-            <h1 class="text-xl font-bold text-gray-800">EcoAdmin</h1>
+            <h1 class="text-xl font-bold text-gray-800">bna </h1>
           </div>
         </div>
 
@@ -301,6 +301,72 @@
                 <span class="font-normal text-sm">List dossier by division</span>
               </a>
 
+              <a *ngIf="userRole === 'ROLE_CHARGEE'"
+                routerLink="/menu/getallDossierbychargee"
+                href="#"
+                class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+              >
+                <i
+                  class="fas fa-list-ul text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                ></i>
+                <span class="font-normal text-sm">List dossier by chargee</span>
+              </a>
+
+            </div>
+          </div>
+
+          <div *ngIf="userRole === 'ROLE_CHARGEE'">
+            <div
+              (click)="toggleMenu('prestManagement')"
+              class="flex items-center justify-between px-3 py-3 rounded-lg cursor-pointer hover:bg-blue-50 transition-all duration-200"
+            >
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-users text-blue-600 w-5 text-center"></i>
+                <span class="font-medium text-sm">gestion prestatire  </span>
+              </div>
+              <i
+                class="fas fa-chevron-down text-gray-400 text-xs transition-transform duration-200"
+                [ngClass]="{
+                  'transform rotate-180': activeMenu === 'prestManagement'
+                }"
+              ></i>
+            </div>
+
+            <div
+              class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
+              [ngClass]="{
+                'max-h-0 py-0': activeMenu !== 'prestManagement',
+                'max-h-96 py-2': activeMenu === 'prestManagement'
+              }"
+            >
+              <!-- ... user management sub-items ... -->
+              <div
+                class="space-y-1 pl-2 overflow-hidden transition-all duration-300"
+                [ngClass]="{
+                  'max-h-0 py-0': activeMenu !== 'prestManagement',
+                  'max-h-96 py-2': activeMenu === 'prestManagement'
+                }"
+              >
+                <a  routerLink="/menu/listeP"
+                  href="#"
+                  class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <i
+                    class="fas fa-user-friends text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                  ></i>
+                  <span class="font-normal text-sm">All prestatire</span>
+                </a>
+                <a  routerLink="/menu/ajoutP"
+                  href="#"
+                  class="sidebar-item flex items-center space-x-3 p-2.5 rounded-lg text-gray-700 hover:bg-blue-50 transition-all duration-200 group"
+                >
+                  <i
+                    class="fas fa-user-plus text-blue-500 group-hover:text-blue-600 w-5 text-center text-sm"
+                  ></i>
+                  <span class="font-normal text-sm">Add New prestaire</span>
+                </a>
+
+              </div>
             </div>
           </div>
 

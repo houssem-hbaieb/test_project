@@ -10,6 +10,9 @@ import { AjouterDivisionComponent } from './components/Gestion_division/ajouter-
 import { GetAlldossierComponent } from './components/Gestion_dossier/get-alldossier/get-alldossier.component';
 import { ListDossierByDepComponent } from './components/Gestion_dossier/list-dossier-by-dep/list-dossier-by-dep.component';
 import { ListdossierbydivisionComponent } from './components/Gestion_dossier/listdossierbydivision/listdossierbydivision.component';
+import { ListDossierByUserComponent } from './components/Gestion_dossier/list-dossier-by-user/list-dossier-by-user.component';
+import { AjoutPrestataireComponent } from './components/Gestion-prestataire/ajout-prestataire/ajout-prestataire.component';
+import { ListePresComponent } from './components/Gestion-prestataire/liste-pres/liste-pres.component';
 
 export const routes: Routes = [
 
@@ -29,6 +32,12 @@ export const routes: Routes = [
       { path: 'getallDossier', component: GetAlldossierComponent },
       { path: 'getallDossierbydep', component:  ListDossierByDepComponent },
       { path: 'getallDossierbydiv', component:  ListdossierbydivisionComponent },
+      { path: 'getallDossierbychargee', component:  ListDossierByUserComponent },
+      { path: 'ajoutP', component:  AjoutPrestataireComponent },
+      { path: 'listeP', component:  ListePresComponent },
+
+
+
 
 
 

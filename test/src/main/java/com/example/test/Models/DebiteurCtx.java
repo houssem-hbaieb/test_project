@@ -9,6 +9,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -116,6 +117,10 @@ public class DebiteurCtx {
     @JoinColumn(name = "user_matricule", referencedColumnName = "id", foreignKey = @ForeignKey(name = "fk_debiteur_user"))
     @OnDelete(action = OnDeleteAction.SET_NULL)
     private User user;
+
+
+    @OneToMany(mappedBy = "debiteurCtx", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Prestataire> prestations;
 
     private static final long serialVersionUID = 1L;
 

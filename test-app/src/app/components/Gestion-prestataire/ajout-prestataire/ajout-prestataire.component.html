@@ -1,0 +1,129 @@
+
+<div class="container mx-auto p-8 max-w-4xl">
+  <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Ajouter Prestataire</h1>
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <!-- Step 1 -->
+  <mat-step [stepControl]="formGroup1">
+    <form [formGroup]="formGroup1">
+      <ng-template matStepLabel>Informations personnelles</ng-template>
+      <mat-form-field class="w-full">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="nomP" />
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Prénom</mat-label>
+        <input matInput formControlName="prenomP" />
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="emailP" type="email" />
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Adresse</mat-label>
+        <input matInput formControlName="adresse" />
+      </mat-form-field>
+
+      <div class="mt-4">
+        <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Step 2 -->
+  <mat-step [stepControl]="formGroup2">
+    <form [formGroup]="formGroup2">
+      <ng-template matStepLabel>Données bancaires</ng-template>
+      <mat-form-field class="w-full">
+        <mat-label>Numéro de compte</mat-label>
+        <input matInput formControlName="numcpte" />
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Agence</mat-label>
+        <input matInput formControlName="agence" />
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-label>Date fiscale</mat-label>
+        <input matInput formControlName="dateFiscale" type="date" />
+      </mat-form-field>
+
+      <div class="mt-4">
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Step 3 -->
+  <mat-step [stepControl]="formGroup3">
+    <form [formGroup]="formGroup3">
+      <ng-template matStepLabel>Type de prestataire</ng-template>
+
+      <mat-form-field class="w-full">
+        <mat-label>Type</mat-label>
+        <mat-select formControlName="typeP">
+          <mat-option value="AVOCAT">Avocat</mat-option>
+          <mat-option value="HUISSIER">Huissier</mat-option>
+          <mat-option value="NOTAIRE">Notaire</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="mt-4">
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-raised-button color="primary" matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Step 4 -->
+  <mat-step [stepControl]="dossierForm">
+    <form [formGroup]="dossierForm">
+      <ng-template matStepLabel>Choisir un dossier</ng-template>
+
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Dossier</mat-label>
+        <mat-select formControlName="debiteur" (selectionChange)="onDebiteurSelected($event.value)">
+          <mat-option *ngFor="let d of debiteurs" [value]="d">
+            ({{ d.numCtx}}/{{ d.codeStructureCtx }})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-raised-button color="accent" (click)="submit()">Enregistrer</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+<style>
+  ::ng-deep .mat-horizontal-stepper-header-container {
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  ::ng-deep .mat-step-header .mat-step-label {
+    font-size: 1.125rem !important;
+    color: #4b5563 !important;
+  }
+  ::ng-deep .mat-form-field-outline {
+    display: none !important; /* Remove the outline/underlines */
+  }
+  ::ng-deep .mat-form-field-infix {
+    padding: 0.75rem 0 !important;
+    border: 1px solid #d1d5db; /* Add a light border for clarity */
+    border-radius: 0.375rem; /* Match Tailwind's rounded-md */
+    background-color: #f9fafb !important; /* Light background for input */
+  }
+  ::ng-deep .mat-select-panel {
+    font-size: 1.125rem !important;
+  }
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0 !important; /* Remove extra padding that may cause visual noise */
+  }
+</style>

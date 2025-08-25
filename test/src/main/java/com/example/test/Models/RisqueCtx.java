@@ -218,7 +218,6 @@ public class RisqueCtx {
 //    private Date dateChargementProvision;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    // remove?
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     @ToString.Exclude

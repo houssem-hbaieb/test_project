@@ -81,7 +81,7 @@ public class CreanceController {
     }
 
     @GetMapping("/chargee/{userId}")
-    public ResponseEntity<List<DebiteurCtxDTO>> getByDivision(@PathVariable int userId) {
+    public ResponseEntity<List<DebiteurCtxDTO>> getByUserId(@PathVariable int userId) {
         return ResponseEntity.ok(creanceService.getDebiteursByUserId(userId));
     }
 
